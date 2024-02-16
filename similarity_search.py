@@ -2,14 +2,13 @@
 similarity_search.py
 """
 import numpy as np
-import pandas as pd
-import streamlit as st
 from sentence_transformers import CrossEncoder
 from sklearn.metrics.pairwise import cosine_similarity
 
 from embeddings import get_embeddings
 
 cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-12-v2")
+
 
 def similarity_search(df, free_text_skills):
     """
@@ -35,6 +34,7 @@ def similarity_search(df, free_text_skills):
         matched_skills.append(best_match)
 
     return matched_skills
+
 
 def _reranker(original_skill, candidate_skill_list):
     """

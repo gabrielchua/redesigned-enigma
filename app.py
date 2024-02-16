@@ -8,8 +8,7 @@ from skills_extraction import (
     extract_free_text_skills,
     ssg_skills_extraction
     )
-from skills_similarity_search import similarity_search
-from v1_ssg_sea import 
+from similarity_search import similarity_search
 
 st.set_page_config(layout="wide")
 
