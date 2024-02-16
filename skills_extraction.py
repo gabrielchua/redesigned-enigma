@@ -48,6 +48,11 @@ def ssg_skills_extraction(text: str):
     """
     ssg_sea_output = extract_skills(text)
 
+    if ssg_sea_output is None:
+        return {"hard_skills": None,
+                 "soft_skills": None,
+                 "tools": None}
+
     skill_extract_list = []
 
     for skill in ssg_sea_output['extractions'].values():
@@ -69,7 +74,7 @@ def ssg_skills_extraction(text: str):
             tools.append(skill['title'])
 
     ssg_sea_output_flatted = {"hard_skills": hard_skills,
-                                "soft_skills": soft_skills,
-                                "tools": tools}
+                              "soft_skills": soft_skills,
+                              "tools": tools}
 
     return ssg_sea_output_flatted
