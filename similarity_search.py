@@ -1,5 +1,5 @@
 """
-skills_similarity_search.py
+similarity_search.py
 """
 import numpy as np
 import pandas as pd

@@ -4,15 +4,18 @@ app.py
 import pandas as pd
 import streamlit as st
 
-from skills_extraction import extract_free_text_skills
+from skills_extraction import (
+    extract_free_text_skills,
+    ssg_skills_extraction
+    )
 from skills_similarity_search import similarity_search
-from v1_ssg_sea import ssg_skills_extraction
+from v1_ssg_sea import 
 
 st.set_page_config(layout="wide")
 
 st.title("Demo Skill Extraction")
 with st.expander("About"):
-    st.info("This is a two step process: \n \n 1. Identify skills from free text using LLM \n 2. Map these skills to SSG Skills Taxonomy using Semantic Search")
+    st.info("This is a two step process: \n \n 1. Extract skills from free text using LLM \n 2. Map these skills to SSG Skills Taxonomy using Semantic Search")
 
 col1, col2, col3 = st.columns(3)
 
@@ -22,7 +25,7 @@ gpt_model = col1.selectbox("Select GPT Model for Step 1",
 
 if col1.button("Extract Skills"):
     
-    col2.subheader("Step 1: LLM Identified Skills")
+    col2.subheader("Step 1: LLM Extracted Skills")
     extracted_skills = extract_free_text_skills(gpt_model, text)
     col2.write(extracted_skills)
 
